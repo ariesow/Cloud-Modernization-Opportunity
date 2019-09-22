@@ -1,4 +1,15 @@
 apiVersion: apps/v1
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'CloudModernization POC - IGD SecureInfrastructure (estimate 2K)(4240efe1-769d-4c57-aa12-02903ffdfd34)'
+    azureResourceGroup: 'IGD-S9-RG'
+    kubernetesCluster: 'IGD-AKS-01'
+    useClusterAdmin: true
+    namespace: 'default'
+    command: 
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
 kind: Deployment
 metadata:
   name: sif-front
